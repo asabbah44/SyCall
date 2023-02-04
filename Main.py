@@ -351,7 +351,12 @@ twidth = len(str(int(max_tot_time))) + 7
 syscallsumms = sorted(syscallsumms, key=lambda x: x['tot time'])
 data=[]
 o=open("out.txt", "a")
-o.writelines("Joker , ")
+o.writelines("Name:1,")
+o.writelines("Malware:1")
+import pandas as pd
+df=pd.read_csv("temp.csv")
+
+print(df)
 
 for i, sd in enumerate(syscallsumms):
     syscall = sd['syscall']
@@ -360,7 +365,7 @@ for i, sd in enumerate(syscallsumms):
 
     k = 'num calls'
     print('\t%13s: %*d  %2d%% of syscalls' % (k, twidth, sd[k], int(round(float(sd[k]) / all_num_calls * 100))))
-    o.writelines("%s : %d, " % (syscall, sd[k]))
+    o.writelines(",%s:%s" % (syscall, sd[k]))
 
 o.writelines("\n")
 o.close()
