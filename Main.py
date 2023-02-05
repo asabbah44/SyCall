@@ -351,7 +351,7 @@ twidth = len(str(int(max_tot_time))) + 7
 syscallsumms = sorted(syscallsumms, key=lambda x: x['tot time'])
 data=[]
 o=open("out.txt", "a")
-o.writelines("Name:1,")
+o.writelines("Package:TrackerFree,")
 o.writelines("Malware:1")
 import pandas as pd
 df=pd.read_csv("temp.csv")
